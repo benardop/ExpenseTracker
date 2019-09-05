@@ -1,16 +1,48 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+node_modules
+platforms
+hooks
+tags
+**/*.js.map
+**/*.metadata.json
 
-# compiled output
-/dist
-/tmp
-/out-tsc
+/nativescript-angular/**/*.d.ts
+/nativescript-angular/**/*.js
 
-# dependencies
-/node_modules
+!/nativescript-angular/global.d.ts
+!/nativescript-angular/postinstall.js
+!/nativescript-angular/hooks/**/*.js
+!/nativescript-angular/gulpfile.js
+!/nativescript-angular/zone-js/dist/*.js
 
-# NativeScript
-/hooks
-/platforms
+.tscache
+.nvm
+.vscode
+.DS_Store
+npm-debug.log
+nativescript-angular*.tgz
+package-lock.json
+
+#NativeScript Template
+*.js.map
+*.js
+!webpack.config.js
+
+#Logs
+logs
+.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Apps' JS files
+tests/app/**/*.js
+tests/test-output.txt
+ng-sample/app/**/*.js
+
+# Webpack configuration files
+webpack.config.js
+tsconfig.esm.json
+tsconfig.tns.json
 
 # IDEs and editors
 /.idea
@@ -19,7 +51,6 @@
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -28,16 +59,5 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+#General
 .DS_Store
-Thumbs.db
