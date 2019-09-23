@@ -6,32 +6,34 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface ExpensesListItem {
-  name: string;
-  id: number;
+  date: string;
+  merchant: string;
+  total: number;
+  comment: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: ExpensesListItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'Total Gas', total: 400, comment: 'Gas expence'},
+  {date: '1/9/2019', merchant: 'Bus Ticket', total: 100, comment: 'Travel expence'},
+  {date: '1/9/2019', merchant: 'Movie Ticket', total: 100, comment: 'Theatre expence'},
+  {date: '1/9/2019', merchant: 'Air Ticket', total: 400, comment: 'Travel expence'},
+  {date: '1/9/2019', merchant: 'Domino Piza', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'McDonald', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'Chinese Fast Food', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
+  {date: '1/9/2019', merchant: 'KFC', total: 400, comment: 'food expence'},
 ];
 
 /**
@@ -94,8 +96,10 @@ export class ExpensesListDataSource extends DataSource<ExpensesListItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'date': return compare(a.date, b.date, isAsc);
+        case 'merchant': return compare(+a.merchant, +b.merchant, isAsc);
+        case 'total': return compare(+a.total, +b.total, isAsc);
+        case 'comment': return compare(+a.comment, +b.comment, isAsc);
         default: return 0;
       }
     });

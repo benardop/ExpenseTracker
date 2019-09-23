@@ -16,7 +16,7 @@ export class ExpensesListComponent implements AfterViewInit, OnInit {
   dataSource: ExpensesListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['date', 'merchant', 'total', 'comment'];
 
   ngOnInit() {
     this.dataSource = new ExpensesListDataSource();
