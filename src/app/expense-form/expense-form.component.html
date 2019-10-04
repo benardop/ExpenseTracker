@@ -1,0 +1,75 @@
+<form class="form-horizontal container">
+  <div class="row">
+    <div class="col-sm-6">
+       <div class="form-group">
+          <label for="date" class="col-sm-1 control-label">Date</label>
+           <div class="col-sm-4">
+            <input  type="date" class="form-control" id="price" placeholder="0" ng-model="ctr.currentItem.date">
+            </div>
+          </div>
+      <div class="form-group">
+        <label for="total" class="col-sm-1 control-label">Total</label>
+        <div class="col-sm-4">
+          <input  class="form-control" id="total" placeholder="0" ng-model="ctr.currentItem.total">
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="comment" class="col-sm-1 control-label">Comment</label>
+          <div class="col-sm-4">
+            <input  class="form-control" id="comment" placeholder="0" ng-model="ctr.currentItem.comment">
+          </div>
+        </div>
+        <div class="form-group">
+              <label for="merchant" class="col-sm-1 control-label">Merchant</label>
+              <div class="col-sm-3">
+                <select class="form-control" ng-model="ctr.currentItem.action">
+                  <option>First Food</option>
+                  <option>Bus Ride</option>
+                  <option>Electronics</option>
+                  <option>Restuarant</option>
+                  <option>Taxi</option>
+                  <option>Ride Sharing</option>
+                  <option>Breakfast</option>
+                  <option>Bus Ride</option>
+                </select>
+              </div>
+            </div>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <div style="padding-top:10px; padding-right:10px; float: left;">
+              <button type="submit" class="btn btn-primary" ng-click="ctr.createNew()">Create New</button>
+          </div>
+          <div style="padding-top:10px; padding-right:10px; float: left;" class="center-block">
+              <button type="submit" class="btn btn-success" ng-click="ctr.saveItem()">Save</button>
+          </div>
+          
+          <div style="padding-top:10px; padding-right:10px; float: left;" class="right-block">
+              <button type="submit" class="btn btn-warning " ng-click="ctr.createNew()">Cancel</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6" style="border-left:solid 1px grey; min-height:400px;max-height:800px">
+      <div>
+        <table  class="table table-striped table-hover">
+          <tr>
+            <th>Date</th>
+            <th>Merchant</th>
+            <th>Total</th>
+            <th>Comment</th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="stock in ctr.portfolioItems" ng-click="ctr.setSelectedItem($index)">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> <a href="#" ng-click='ctr.deleteItem($index);$event.stopPropagation()'>Delete</a>
+          </tr>                 
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
