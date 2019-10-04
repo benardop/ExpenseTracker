@@ -2,6 +2,9 @@
 
 /* Global Styles */
 
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import "~bootstrap/dist/css/bootstrap.css";  
+
 
 * {
   font-family: 'Roboto', Arial, sans-serif;
@@ -62,14 +65,27 @@ app-home {
     color: white;
     margin: 0;
   }
-
+/* form gloabl styles */
   /* Hyperlink */
-a {
-  cursor: pointer;
-  color: #1976d2;
-  text-decoration: none;
-}
 
-a:hover {
-  opacity: 0.8;
+body, input[text], button {
+  color: #333;
+  font-family: Cambria, Georgia;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
 }
