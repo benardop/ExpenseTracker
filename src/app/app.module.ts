@@ -21,6 +21,7 @@ import {
   MatInputModule,
   MatButtonModule
 } from '@angular/material';
+import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {
     AppComponent,
     HomeComponent,
     ExpensesListComponent,
-    ExpenseFormComponent
+    ExpenseFormComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,9 @@ import {
     MatFormFieldModule,
     MatButtonModule,
     FormsModule
+  ],
+  entryComponents: [
+    DialogBoxComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
