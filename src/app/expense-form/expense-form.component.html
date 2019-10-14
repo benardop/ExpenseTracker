@@ -36,18 +36,15 @@
           <!-- Action Column -->
           <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef>
-                <button mat-raised-button color="accent"  (click)="openDialog('Add',{})">
-                    <mat-icon color="accent">add</mat-icon>
-                </button>
+                <button mat-raised-button (click)="openDialog('Add',{})">
+                    <mat-icon color="primary">add</mat-icon>Add Expense </button>
               </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
-                  <button mat-raised-button color="accent" (click)="openDialog('Update',element)">
-                      <mat-icon color="accent">edit</mat-icon>
-                  </button> 
+                  <button mat-raised-button (click)="openDialog('Update',element)">
+                      <mat-icon color="primary">edit</mat-icon>Edit</button> 
 
-                  <button mat-raised-button color="warn" (click)="openDialog('Delete',element)">
-                      <mat-icon aria-label="Delete">Delete</mat-icon>
-                    </button> 
+                  <button mat-raised-button (click)="openDialog('Delete',element)">
+                      <mat-icon color="primary">delete</mat-icon>Delete</button> 
             </mat-cell>
           </ng-container>
       

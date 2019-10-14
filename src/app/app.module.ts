@@ -14,12 +14,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ExpenseFormComponent } from '@src/app/expense-form/expense-form.component';
 import { from } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 import {
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule,
-  MatButtonModule
+  MatInputModule
+  // MatButtonModule
 } from '@angular/material';
 import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
 
@@ -43,7 +45,8 @@ import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   entryComponents: [
     DialogBoxComponent
