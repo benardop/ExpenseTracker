@@ -12,6 +12,7 @@ import { ExpensesListComponent } from '@src/app/expenses-list/expenses-list.comp
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material';
 import { ExpenseFormComponent } from '@src/app/expense-form/expense-form.component';
 import { from } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +25,7 @@ import {
   // MatButtonModule
 } from '@angular/material';
 import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -42,9 +44,11 @@ import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
     MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    HttpClientModule,
     FormsModule,
     MatIconModule
   ],
