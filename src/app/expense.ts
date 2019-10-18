@@ -1,10 +1,9 @@
-export class Expense {
+export interface Expense {
 
-    constructor(
-        public id: number,
-        public date: Date,
-        public merchant: string,
-        public total: number,
-        public comment?: string
-    ) { }
+        id: number;
+        date: string;
+        merchant: string;
+        total: number;
+        comment?: string;
+
 }
