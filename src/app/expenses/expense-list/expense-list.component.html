@@ -1,0 +1,31 @@
+<div class="mat-elevation-z8">
+     <mat-table [dataSource]="listData">
+         <ng-container matColumnDef="comment">
+             <mat-header-cell *matHeaderCellDef>Comment</mat-header-cell>
+             <mat-cell *matCellDef="let element">{{element.comment}}</mat-cell>
+         </ng-container>
+         <ng-container matColumnDef="merchant">
+                <mat-header-cell *matHeaderCellDef>Merchant</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.merchant}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="total">
+                 <mat-header-cell *matHeaderCellDef>Total</mat-header-cell>
+                 <mat-cell *matCellDef="let element">{{element.total}}</mat-cell>
+           </ng-container>
+           <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button><mat-icon>launch</mat-icon></button>
+                    <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+                </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+                <mat-footer-cell *matFooterCellDef colspan="6">
+                    loading data...
+                </mat-footer-cell>                
+          </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData != null}"></mat-footer-row>
+     </mat-table>
+</div>
