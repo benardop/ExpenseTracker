@@ -1,0 +1,38 @@
+<form [formGroup]="service.form" class="normal-form"  (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="$key">
+                <mat-form-field>
+                     <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date*">
+                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                     <mat-datepicker #picker></mat-datepicker>
+                     <mat-error>This field is required</mat-error>
+                 </mat-form-field>
+                 <mat-form-field>
+                     <mat-select formControlName="merchant"  placeholder="Merchant">
+                           <mat-option>None</mat-option>
+                           <ng-container *ngFor="let merchant of merchantService.array">
+                             <mat-option value="{{merchant.$key}}">{{merchant.code}}-{{merchant.name}}</mat-option>
+                           </ng-container>
+                        </mat-select>
+                 </mat-form-field>
+                 <mat-form-field>
+                    <input formControlName="total" matInput placeholder="Total*">
+                    <mat-error>This field is required</mat-error>
+                 </mat-form-field>
+                 <mat-form-field>
+                    <input formControlName="comment" matInput placeholder="Comment">
+                 </mat-form-field>
+                 <div class="button-row">
+                    <button mat-raised-button color="primary" 
+                     type="submit" [disabled]="service.form.invalid">Submit</button>
+                    <button mat-raised-button color="primary" type="warn" (click)="onClear()">Clear</button>
+                 </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
+
