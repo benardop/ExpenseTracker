@@ -1,15 +1,15 @@
 <div class="mat-elevation-z8">
-     <mat-table [dataSource]="listData">
+     <mat-table [dataSource]="listData" matSort>
          <ng-container matColumnDef="comment">
              <mat-header-cell *matHeaderCellDef>Comment</mat-header-cell>
              <mat-cell *matCellDef="let element">{{element.comment}}</mat-cell>
          </ng-container>
          <ng-container matColumnDef="merchant">
-                <mat-header-cell *matHeaderCellDef>Merchant</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Merchant</mat-header-cell>
                 <mat-cell *matCellDef="let element">{{element.merchant}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="total">
-                 <mat-header-cell *matHeaderCellDef>Total</mat-header-cell>
+                 <mat-header-cell *matHeaderCellDef mat-sort-header>Total</mat-header-cell>
                  <mat-cell *matCellDef="let element">{{element.total}}</mat-cell>
            </ng-container>
            <ng-container matColumnDef="actions">
