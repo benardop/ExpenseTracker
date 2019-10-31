@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {ExpenseService } from '../../shared/expense.service';
   import { from } from 'rxjs';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-expense-list',
@@ -15,6 +15,7 @@ export class ExpenseListComponent implements OnInit {
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = [ 'merchant', 'total', 'comment', 'actions'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.service.getExpenses().subscribe(
@@ -27,6 +28,7 @@ export class ExpenseListComponent implements OnInit {
         });
         this.listData = new MatTableDataSource(array);
         this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
       });
   }
 
