@@ -16,6 +16,7 @@ export class ExpenseListComponent implements OnInit {
   displayedColumns: string[] = [ 'merchant', 'total', 'comment', 'actions'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  searchKey: string;
 
   ngOnInit() {
     this.service.getExpenses().subscribe(
@@ -30,6 +31,16 @@ export class ExpenseListComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
       });
+  }
+
+  onSearchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+
+   applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+
   }
 
 }
