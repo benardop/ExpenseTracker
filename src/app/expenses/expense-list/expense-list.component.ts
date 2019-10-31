@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {ExpenseService } from '../../shared/expense.service';
   import { from } from 'rxjs';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MerchantService } from '../../shared/merchant.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -10,10 +11,11 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 })
 export class ExpenseListComponent implements OnInit {
 
-  constructor(private service: ExpenseService) { }
+  constructor(private service: ExpenseService,
+              private merchantService: MerchantService) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [ 'merchant', 'total', 'comment', 'actions'];
+  displayedColumns: string[] = [ 'merchantName', 'total', 'comment', 'actions'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   searchKey: string;
@@ -22,8 +24,10 @@ export class ExpenseListComponent implements OnInit {
     this.service.getExpenses().subscribe(
       list => {
         let array = list.map(item => {
+         let merchantName = this.merchantService.getMerchantName(item.payload.val()['merchant']);
            return {
              $key: item.key,
+               merchantName,
               ...item.payload.val()
            };
         });
