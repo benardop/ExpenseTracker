@@ -5,6 +5,8 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { MerchantService } from '../../shared/merchant.service';
 import { MatDialog, MatDialogConfig} from '@angular/material';
 import { ExpenseComponent } from '../expense/expense.component';
+import { NotificationService } from '@src/app/shared/notification.service';
+import { DialogService } from '@src/app/shared/dialog.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -15,7 +17,9 @@ export class ExpenseListComponent implements OnInit {
 
   constructor(private service: ExpenseService,
               private merchantService: MerchantService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private notificationService: NotificationService,
+              private dialogService: DialogService) { }
 
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = [ 'date', 'merchantName', 'total', 'comment', 'actions'];
@@ -66,5 +70,15 @@ export class ExpenseListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '60%';
     this.dialog.open(ExpenseComponent, dialogConfig);
+  }
+
+  onDelete($key) {
+   this.dialogService.openConfirmDialog('Are you sure you want to delete the expense ?')
+    .afterClosed().subscribe(res => {
+       if (res) {
+          this.service.deleteExpense($key);
+          this.notificationService.warn('! Deleted Successfully.');
+       }
+    });
   }
 }

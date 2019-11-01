@@ -41,6 +41,7 @@ import { from } from 'rxjs';
 import { ExpenseService } from '@src/app/shared/expense.service';
 import { MerchantService } from '@src/app/shared/merchant.service';
 import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-list.component';
+import { MatConfirmDialogComponent } from '@src/app/mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-lis
     DialogBoxComponent,
     ExpensesComponent,
     ExpenseComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-lis
   ],
   entryComponents: [
     DialogBoxComponent,
-    ExpenseComponent
+    ExpenseComponent,
+    MatConfirmDialogComponent
   ],
   providers: [ExpenseService, MerchantService, DatePipe],
   bootstrap: [AppComponent],

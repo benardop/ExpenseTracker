@@ -9,6 +9,7 @@ import { DialogBoxComponent } from '@src/app/dialog-box/dialog-box.component';
 import { ExpensesComponent } from '@src/app/expenses/expenses.component';
 import { ExpenseComponent } from '@src/app/expenses/expense/expense.component';
 import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-list.component';
+import { MatConfirmDialogComponent } from '@src/app/mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -26,6 +27,7 @@ import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-lis
     ExpensesComponent,
     ExpenseComponent,
     ExpenseListComponent,
+    MatConfirmDialogComponent,
   ],
   imports: [
     NativeScriptModule,
