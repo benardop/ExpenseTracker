@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { DatePipe } from '@angular/common';
 import { environment } from '@src/environments/environment';
 
 import { AppRoutingModule } from '@src/app/app-routing.module';
@@ -40,6 +41,7 @@ import { from } from 'rxjs';
 import { ExpenseService } from '@src/app/shared/expense.service';
 import { MerchantService } from '@src/app/shared/merchant.service';
 import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-list.component';
+import { MatConfirmDialogComponent } from '@src/app/mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-lis
     DialogBoxComponent,
     ExpensesComponent,
     ExpenseComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +82,11 @@ import { ExpenseListComponent } from '@src/app/expenses/expense-list/expense-lis
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   entryComponents: [
-    DialogBoxComponent
+    DialogBoxComponent,
+    ExpenseComponent,
+    MatConfirmDialogComponent
   ],
-  providers: [ExpenseService, MerchantService],
+  providers: [ExpenseService, MerchantService, DatePipe],
   bootstrap: [AppComponent],
   schemas: [
      NO_ERRORS_SCHEMA
