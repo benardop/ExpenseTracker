@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
+import { DatePipe } from '@angular/common';
+import * as _ from 'lodash';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseService {
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase,
+              private datePipe: DatePipe) { }
 
    expenseList: AngularFireList<any>;
 
@@ -37,7 +41,7 @@ export class ExpenseService {
 
     insertExpense(expense) {
          this.expenseList.push({
-           date: expense.date,
+           date: expense.date == "" ? "" : this.datePipe.transform(expense.date, 'yyyy-MM-dd'),
            merchant: expense.merchant,
            total: expense.total,
            comment: expense.comment
@@ -47,7 +51,7 @@ export class ExpenseService {
     updateExpense(expense) {
       this.expenseList.update(expense.$key,
         {
-          date: expense.date,
+          date: expense.date == "" ? "" : this.datePipe.transform(expense.date, 'yyyy-MM-dd'),
           merchant: expense.merchant,
           total: expense.total,
           comment: expense.comment
@@ -56,5 +60,9 @@ export class ExpenseService {
 
     deleteExpense($key: string) {
         this.expenseList.remove($key);
+    }
+
+    populateForm(expense) {
+      this.form.setValue(_.omit(expense, 'merchantName'));
     }
 }
